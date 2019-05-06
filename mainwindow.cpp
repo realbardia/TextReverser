@@ -23,10 +23,9 @@ void MainWindow::on_textEdit_textChanged()
             if(ch.direction() != QChar::DirAL && result.count() > 0)
             {
                 qint32 lastIdx = result.count()-1;
-                while(lastIdx >= 0 && result.at(lastIdx).direction() != QChar::DirAL)
+                while(lastIdx >= 0 && result.at(lastIdx).direction() != QChar::DirAL && result.at(lastIdx) != '\n')
                     lastIdx--;
 
-                qDebug() << result.count()-1 << lastIdx << ch;
                 if(lastIdx == -1)
                     result += ch;
                 else
